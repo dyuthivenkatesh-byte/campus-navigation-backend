@@ -1,17 +1,12 @@
-# Use official Java 17 image
-FROM openjdk:17-jdk-slim
-
-# Set working directory
+# Use Maven with Java 17 to build
+FROM maven:3.9.6-eclipse-temurin-17 AS build
 WORKDIR /app
-
-# Copy all files to the container
 COPY . .
+RUN mvn clean package -DskipTests
 
-# Build the project using Maven Wrapper
-RUN ./mvnw clean package -DskipTests
-
-# Expose port 8080 (Spring Boot default)
+# Use lightweight Java 17 runtime for final image
+FROM eclipse-temurin:17-jdk
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
-
-# Run the generated JAR file
-CMD ["java", "-jar", "target/*.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
