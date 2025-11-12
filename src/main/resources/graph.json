@@ -1,0 +1,22 @@
+
+{
+  "nodes": [
+    {"id":"N1", "name":"Main Gate", "lat":12.925182, "lng":77.526591},
+    {"id":"N2", "name":"Main Building", "lat":12.92679012109793, "lng":77.52683201184149},
+    {"id":"N3", "name":"Annex", "lat":12.927444830636464, "lng":77.52707150006678},
+    {"id":"N4", "name":"Canteen", "lat":12.925437, "lng":77.526382},
+    {"id":"N5", "name":"Hostel", "lat":12.92339063542973, "lng":77.52791174460873}
+  ],
+  "edges": [
+    {"from":"N1","to":"N2","weight":78.0},
+    {"from":"N1","to":"N3","weight":110.0},
+    {"from":"N1","to":"N4","weight":20.0},
+    {"from":"N1","to":"N5","weight":500.0},
+    {"from":"N2","to":"N3","weight":30.0},
+    {"from":"N2","to":"N4","weight":90.0},
+    {"from":"N2","to":"N5","weight":578.0},
+    {"from":"N3","to":"N4","weight":130.0},
+    {"from":"N3","to":"N5","weight":610.0},
+    {"from":"N4","to":"N5","weight":520.0}
+  ]
+}
